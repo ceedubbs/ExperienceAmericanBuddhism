@@ -1,3 +1,14 @@
+@media print {
+  /* Add print-specific styles here */
+  body {
+    color: black;
+  }
+  /* Hide elements not needed in the PDF */
+  .header, .footer, .nav, .aside, .buttons {
+    display: none;
+  }
+}
+
 :root {
   --black: #070707;
   --yellow: #e8e353;

@@ -9,7 +9,7 @@ let artifacts = [
   {
     id: 2,
     type: "pdf",
-    url: "https://petjubxyyhciqivlwinq.supabase.co/storage/v1/object/public/artifacts/Olcott%20in%20Colombo%20Sri%20Lanka.pdf",
+    url: "https://petjubxyyhciqivlwinq.supabase.co/storage/v1/object/public/artifacts/Olcott%20in%20Colombo%20Sri%20Lanka.pdf?t=2023-11-16T05%3A34%3A57.467Z",
     title: "Olcott in Colombo Sri Lanka",
     reflections: [],
   },
@@ -23,7 +23,7 @@ let artifacts = [
   {
     id: 4,
     type: "pdf",
-    url: "https://petjubxyyhciqivlwinq.supabase.co/storage/v1/object/public/artifacts/People%20leaving%20Buddhist%20church,%20winter,%20Manzanar%20Relocation%20Center,%20California.pdf",
+    url: "https://petjubxyyhciqivlwinq.supabase.co/storage/v1/object/public/artifacts/People%20leaving%20Buddhist%20church,%20winter,%20Manzanar%20Relocation%20Center,%20California.pdf?t=2023-11-16T05%3A35%3A13.011Z",
     title:
       "People leaving Buddhist church, winter, Manzanar Relocation Center, California",
     reflections: [],
@@ -31,8 +31,8 @@ let artifacts = [
   {
     id: 5,
     type: "pdf",
-    url: "https://petjubxyyhciqivlwinq.supabase.co/storage/v1/object/public/artifacts/Buddhists%20at%20the%20Santa%20Fe%20Internment%20Camp.pdf",
-    title: "Buddhists at the Santa Fe Internment Camp",
+    url: "https://petjubxyyhciqivlwinq.supabase.co/storage/v1/object/public/artifacts/Buddhist%20Ministers%20at%20Sante%20Fe%20Internment%20Camp.pdf",
+    title: "Buddhists Ministers at the Santa Fe Internment Camp",
     reflections: [],
   },
   {
@@ -307,7 +307,6 @@ function populateArtifactReflections() {
   });
 }
 
-
 function generateReflectionsPDF() {
   const doc = new jsPDF();
 
@@ -315,11 +314,17 @@ function generateReflectionsPDF() {
   artifacts.forEach((artifact, index) => {
     if (artifact.reflections && artifact.reflections.length > 0) {
       // Add the artifact title and URL as text
-      doc.text(10, yPos, `Artifact ${index + 1}: ${artifact.title} (URL: artifact.html?artifactId=${artifact.id})`);
+      doc.text(
+        10,
+        yPos,
+        `Artifact ${index + 1}: ${
+          artifact.title
+        } (URL: artifact.html?artifactId=${artifact.id})`
+      );
       yPos += 10;
 
       // Add reflections
-      artifact.reflections.forEach(reflection => {
+      artifact.reflections.forEach((reflection) => {
         doc.text(15, yPos, reflection);
         yPos += 10;
       });
